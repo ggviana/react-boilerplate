@@ -1,0 +1,8 @@
+{
+  "plugins": [
+    "transform-export-extensions",
+    "transform-object-rest-spread",
+    "react-hot-loader/babel"
+  ],
+  "presets": ["env", "react"]
+}

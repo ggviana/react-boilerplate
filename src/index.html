@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="<%= htmlWebpackPlugin.options.color %>"/>
+    <meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
+    <meta name="msapplication-TileColor" content="<%= htmlWebpackPlugin.options.color %>">
+    <base href="/">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- Standard favicon -->
+    <link rel="icon" type="image/x-icon" href="<%= htmlWebpackPlugin.options.faviconICO %>">
+    <!-- Recommended favicon format -->
+    <link rel="icon" type="image/png" href="<%= htmlWebpackPlugin.options.faviconPNG %>">
+    <!-- Apple Touch Icon (at least 200x200px) -->
+    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.options.faviconPNG %>">
+    <!-- To run web application in full-screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Status Bar Style (see Supported Meta Tags below for available values) -->
+    <!-- Has no effect unless you have the previous meta tag -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="<%= htmlWebpackPlugin.options.color %>">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
