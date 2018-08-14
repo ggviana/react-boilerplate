@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { createContext } from 'react'
+import PropTypes from 'prop-types'
 import isFunction from 'util/isFunction'
 
-export default function (contextCreator) {
-  if (!isFunction(contextCreator))
+export default contextCreator => {
+  if (!isFunction(contextCreator)) {
     throw new TypeError('contextCreator is not a function')
+  }
 
-  const Context = React.createContext()
-
-  let state = {}
+  let store = {}
 
   const set = (dataOrKey, value) => new Promise(resolve => {
     let data = dataOrKey
@@ -18,45 +18,28 @@ export default function (contextCreator) {
       data = { [key]: value }
     }
 
-    state = Object.assign(state, data)
-    resolve()
+    store = Object.assign(store, data)
+    resolve(store)
   })
 
-  const get = key => state[key]
+  const get = key => store[key]
 
-  class Provider extends React.Component {
-    render () {
-      return (
-        <Context.Provider value={contextCreator({ set, get })}>
-          {this.props.children}
-        </Context.Provider>
-      )
-    }
-  }
+  const Context = createContext()
 
-  class Consumer extends React.Component {
-    constructor (props) {
-      super(props)
+  const Provider = ({ children }) => (
+    <Context.Provider value={contextCreator({ set, get })}>
+      {children}
+    </Context.Provider>
+  )
 
-      if (!isFunction(props.children))
-        throw new TypeError('Consumer children is not a function')
-    }
+  const Consumer = ({ children }) => (
+    <Context.Consumer>
+      {data => children(data)}
+    </Context.Consumer>
+  )
 
-    componentWillMount () {
-      const { beforeMount } = this.props
-
-      if (isFunction(beforeMount)) {
-        beforeMount(Context._currentValue)
-      }
-    }
-
-    render () {
-      return (
-        <Context.Consumer>
-          {data => this.props.children(data)}
-        </Context.Consumer>
-      )
-    }
+  Consumer.propTypes = {
+    children: PropTypes.func
   }
 
   return {
