@@ -1,4 +1,5 @@
 export App from './App/App'
+export Compose from './Compose/Compose'
 export Form from './Form/Form'
 export Field from './Field/Field'
 export Visible from './Visible/Visible'
