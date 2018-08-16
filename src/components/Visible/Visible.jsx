@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import isFunction from 'util/isFunction'
 
 const Visible = ({ when = false, children }) => {
@@ -9,6 +10,10 @@ const Visible = ({ when = false, children }) => {
   } else {
     return null
   }
+}
+
+Visible.propTypes = {
+  when: PropTypes.bool
 }
 
 export default Visible
