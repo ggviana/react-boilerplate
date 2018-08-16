@@ -8,12 +8,12 @@ const TodoContext = createContext(({ get, set }) => ({
   isLoading: false,
 
   getTodos: () => set('isLoading', true)
-  .then(() => TodoAPI.getAll())
-  .then(todos => set({
-    todos: todos,
-    isLoading: false
-  }))
-  .then(store => store.todos),
+    .then(() => TodoAPI.getAll())
+    .then(todos => set({
+      todos: todos,
+      isLoading: false
+    }))
+    .then(store => store.todos),
 
   getTodo: id => set('isLoading', true)
     .then(() => TodoAPI.get(id))
@@ -31,9 +31,9 @@ const TodoContext = createContext(({ get, set }) => ({
   removeTodo: id => set('isLoading', true)
     .then(() => TodoAPI.deleteById(id))
     .then(() => set({
-        todos: get('todos').filter(todo => todo.id !== id),
-        isLoading: false
-      })),
+      todos: get('todos').filter(todo => todo.id !== id),
+      isLoading: false
+    })),
 
   updateTitle: text => set('currentTitle', text)
 }))

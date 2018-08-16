@@ -1,7 +1,6 @@
 import React from 'react'
 import {hot} from 'react-hot-loader'
 import './App.css'
-import src from 'assets/images/react.svg'
 import { TodoProvider } from 'contexts/Todo'
 import { Link, BrowserRouter as Router, Route } from 'react-router-dom'
 import { TodoDetail, TodoHome } from 'pages'

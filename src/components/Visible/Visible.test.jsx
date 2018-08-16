@@ -4,7 +4,7 @@ import Visible from './Visible'
 
 it('should show children when visible', () => {
   const wrapped = mount(
-    <Visible when={true}>
+    <Visible when>
       <p>text</p>
     </Visible>
   )

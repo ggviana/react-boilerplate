@@ -6,13 +6,13 @@ const IdComponent = ({ children }) => children
 const Compose = ({children, components}) => {
   const Composed = components
     .reduceRight((Composed, NextComponent) => ({ children }) => (
-        <NextComponent>
-          <Composed>
-            {children}
-          </Composed>
-        </NextComponent>
-      ),
-      IdComponent
+      <NextComponent>
+        <Composed>
+          {children}
+        </Composed>
+      </NextComponent>
+    ),
+    IdComponent
     )
 
   return <Composed children={children} />

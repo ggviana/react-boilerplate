@@ -61,7 +61,6 @@ export default class Field extends React.Component {
   }
 
   render () {
-
     if (isFunction(this.props.render)) {
       return this.props.renderCustom()
     }

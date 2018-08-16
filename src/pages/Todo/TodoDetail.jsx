@@ -1,7 +1,6 @@
 import React from 'react'
 import { TodoConsumer } from 'contexts/Todo'
 import { Wait } from 'components'
-import wait from 'util/wait'
 
 const TodoDetail = ({ match }) => (
   <TodoConsumer>

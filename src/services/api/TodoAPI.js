@@ -3,13 +3,12 @@ import wait from 'util/wait'
 
 let nextId = 1, todos = [{
   id: 0,
-  description: "Some note"
+  description: 'Some note'
 }]
 
 const toData = response => response.data
 
 class TodoAPI {
-
   getAll () {
     return requester.get('/todos').then(toData)
   }

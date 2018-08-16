@@ -88,7 +88,7 @@ module.exports = {
     }),
     new ImageminPlugin({
       disable: env(true, false),
-      test: /\assets\/images\/*.(jpe?g|png|gif|svg)$/i,
+      test: /assets\/images\/*.(jpe?g|png|gif|svg)$/i,
       pngquant: {
         quality: '95-100'
       }

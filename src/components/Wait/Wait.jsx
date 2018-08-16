@@ -30,12 +30,7 @@ class Wait extends React.Component {
   render () {
     const { children } = this.props
 
-    if (isFunction(children))
-      return children(this.state)
-    else if (!this.state.pending)
-      return children
-    else
-      return null
+    if (isFunction(children)) { return children(this.state) } else if (!this.state.pending) { return children } else { return null }
   }
 }
 
